@@ -56,6 +56,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  cursor: "url(https://cdn.jsdelivr.net/gh/lonuslan/IMGCDN@latest/2020/08/13/26533e849f5b2f26943f81243c875909.png),auto";
 }
 *::-webkit-scrollbar {
   width: 8px;
@@ -120,7 +121,7 @@ h6 code {
 hr {
   position: relative;
   margin: 2rem auto;
-  border: 2px dashed #a4d8fa;
+  border: 2px dashed #d2ebfd;
   width: calc(100% - 4px);
 }
 hr:hover:before {
@@ -131,7 +132,7 @@ hr:before {
   top: -10px;
   left: 5%;
   z-index: 1;
-  color: #80c8f8;
+  color: #bfe4fb;
   content: '\f0c4';
   font-size: 20px;
   line-height: 1;
@@ -4174,7 +4175,7 @@ img {
   overflow-wrap: break-word;
 }
 #article-container a {
-  color: #49b1f5;
+  color: #99a9bf;
 }
 #article-container a:hover {
   text-decoration: underline;
