@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>daily leetcode - longest-common-prefix - ! | Hi I'm LonusLan</title><meta name="description" content="题目地址https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;longest-common-prefix&#x2F; 题目描述Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string"><meta name="keywords" content="leetcode,daily-leetcode"><meta name="author" content="Lonus Lan"><meta name="copyright" content="Lonus Lan"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://img.lonuslan.com/lonuslan/20200414/SPGX7UvyK7aT.png"><link rel="canonical" href="https://hexo.lonuslan.com/articles/2020/01/30/1580357070108"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="daily leetcode - longest-common-prefix - !"><meta property="og:url" content="https://hexo.lonuslan.com/articles/2020/01/30/1580357070108"><meta property="og:site_name" content="Hi I'm LonusLan"><meta property="og:description" content="题目地址https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;longest-common-prefix&#x2F; 题目描述Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string"><meta property="og:image" content="https://img.hacpai.com/bing/20180725.jpg?imageView2/1/w/960/h/540/interlace/1/q/100"><meta property="article:published_time" content="2020-01-30T04:04:30.000Z"><meta property="article:modified_time" content="2020-01-30T04:09:51.000Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="daily leetcode - 3sum - !" href="https://hexo.lonuslan.com/articles/2020/01/30/1580357303126.html"><link rel="next" title="daily leetcode - roman-to-integer - !" href="https://hexo.lonuslan.com/articles/2020/01/30/1580356960946.html"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://img.lonuslan.com/lonuslan/20200414/SPGX7UvyK7aT.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">21</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">4</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 喜欢</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" target="_blank" rel="noopener" href="https://valine.lonuslan.com"><i class="fa-fw fas fa-comments"></i><span> 评论后台管理</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://lonuslan.m.awhost.cn/"><i class="fa-fw fas fa-file-image"></i><span> 图片上传</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="http://mf.aidso.cn:3312/vhost/index.php"><i class="fa-fw fas fa-cloud"></i><span> 图片后台主机管理</span></a></li></ul></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="toc-number">1.</span> <span class="toc-text">题目地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">关键点解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">代码</span></a></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="photo"></div><header class="post-bg" id="page-header" style="background-image: url(https://img.hacpai.com/bing/20180725.jpg?imageView2/1/w/960/h/540/interlace/1/q/100)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">Hi I'm LonusLan</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 喜欢</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" target="_blank" rel="noopener" href="https://valine.lonuslan.com"><i class="fa-fw fas fa-comments"></i><span> 评论后台管理</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://lonuslan.m.awhost.cn/"><i class="fa-fw fas fa-file-image"></i><span> 图片上传</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="http://mf.aidso.cn:3312/vhost/index.php"><i class="fa-fw fas fa-cloud"></i><span> 图片后台主机管理</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">daily leetcode - longest-common-prefix - !</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-01-30 12:04:30"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-01-30</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-01-30 12:09:51"><i class="fas fa-history fa-fw"></i> 更新于 2020-01-30</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/daily-leetcode/">daily-leetcode</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta__icon"></i><span>字数总计:</span><span class="word-count">1.2k</span><span class="post-meta__separator">|</span><i class="far fa-clock fa-fw post-meta__icon"></i><span>阅读时长: 5 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"><span class="post-meta__separator">|</span><i class="far fa-comments fa-fw post-meta__icon"></i><span>评论数:</span><a href="/articles/2020/01/30/1580357070108.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/articles/2020/01/30/1580357070108.html" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="题目地址"><a href="#题目地址" class="headerlink" title="题目地址"></a>题目地址</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-common-prefix/">https://leetcode.com/problems/longest-common-prefix/</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+<p>If there is no common prefix, return an empty string <code>&quot;&quot;</code>.</p>
+<p>Example 1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]<br>Output: &quot;fl&quot;<br><br></code></pre></td></tr></table></figure>
+
+<p>Example 2:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]<br>Output: &quot;&quot;<br>Explanation: There is no common prefix among the input strings.<br><br></code></pre></td></tr></table></figure>
+
+<p>Note:</p>
+<p>All given inputs are in lowercase letters <code>a-z</code>.</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题让我们求一系列字符串的共同前缀，没有什么特别的技巧，无脑查找即可，定义两个变量i和j，其中i是遍历搜索字符串中的字符，j是遍历字符串集中的每个字符串。这里将单词上下排好，则相当于一个各行长度有可能不相等的二维数组，遍历顺序和一般的横向逐行遍历不同，而是采用纵向逐列遍历，在遍历的过程中，如果某一行没有了，说明其为最短的单词，因为共同前缀的长度不能长于最短单词，所以此时返回已经找出的共同前缀。每次取出第一个字符串的某一个位置的单词，然后遍历其他所有字符串的对应位置看是否相等，如果有不满足的直接返回 res，如果都相同，则将当前字符存入结果，继续检查下一个位置的字符.</p>
+<h2 id="关键点解析"><a href="#关键点解析" class="headerlink" title="关键点解析"></a>关键点解析</h2><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>C++ 解法一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs plain">class Solution &#123;<br>public:<br>    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) &#123;<br>        if (strs.empty()) return &quot;&quot;;<br>        string res &#x3D; &quot;&quot;;<br>        for (int j &#x3D; 0; j &lt; strs[0].size(); ++j) &#123;<br>            char c &#x3D; strs[0][j];<br>            for (int i &#x3D; 1; i &lt; strs.size(); ++i) &#123;<br>                if (j &gt;&#x3D; strs[i].size() || strs[i][j] !&#x3D; c) &#123;<br>                    return res;<br>                &#125;<br>            &#125;<br>            res.push_back(c);<br>        &#125;<br>        return res;<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>Java 解法一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs plain">public class Solution &#123;<br>    public String longestCommonPrefix(String[] strs) &#123;<br>        if (strs &#x3D;&#x3D; null || strs.length &#x3D;&#x3D; 0) return &quot;&quot;;<br>        String res &#x3D; new String();<br>        for (int j &#x3D; 0; j &lt; strs[0].length(); ++j) &#123;<br>            char c &#x3D; strs[0].charAt(j);<br>            for (int i &#x3D; 1; i &lt; strs.length; ++i) &#123;<br>                if (j &gt;&#x3D; strs[i].length() || strs[i].charAt(j) !&#x3D; c) &#123;<br>                    return res;<br>                &#125;<br>            &#125;<br>            res +&#x3D; Character.toString(c);<br>        &#125;<br>        return res;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>我们可以对上面的方法进行适当精简，如果发现当前某个字符和第一个字符串对应位置的字符不相等，说明不会再有更长的共同前缀了，直接通过用 substr 的方法直接取出共同前缀的子字符串。如果遍历结束前没有返回结果的话，说明第一个单词就是公共前缀，返回为结果即可。代码如下：</p>
+<p>C++ 解法二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs plain">class Solution &#123;<br>public:<br>    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) &#123;<br>        if (strs.empty()) return &quot;&quot;;<br>        for (int j &#x3D; 0; j &lt; strs[0].size(); ++j) &#123;<br>            for (int i &#x3D; 0; i &lt; strs.size(); ++i) &#123;<br>                if (j &gt;&#x3D; strs[i].size() || strs[i][j] !&#x3D; strs[0][j]) &#123;<br>                    return strs[i].substr(0, j);<br>                &#125;<br>            &#125;<br>        &#125;<br>        return strs[0];<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>Java 解法二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs plain">class Solution &#123;<br>    public String longestCommonPrefix(String[] strs) &#123;<br>        if (strs &#x3D;&#x3D; null || strs.length &#x3D;&#x3D; 0) return &quot;&quot;;<br>        for (int j &#x3D; 0; j &lt; strs[0].length(); ++j) &#123;<br>            for (int i &#x3D; 0; i &lt; strs.length; ++i) &#123;<br>                if (j &gt;&#x3D; strs[i].length() || strs[i].charAt(j) !&#x3D; strs[0].charAt(j)) &#123;<br>                    return strs[i].substring(0, j); <br>                &#125;   <br>            &#125;<br>        &#125;<br>        return strs[0];<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>我们再来看一种解法，这种方法给输入字符串数组排了个序，想想这样做有什么好处？既然是按字母顺序排序的话，那么有共同字母多的两个字符串会被排到一起，而跟大家相同的字母越少的字符串会被挤到首尾两端，那么如果有共同前缀的话，一定会出现在首尾两端的字符串中，所以只需要找首尾字母串的共同前缀即可。比如例子1排序后为 [“flight”, “flow”, “flower”]，例子2排序后为 [“cat”, “dog”, “racecar”]，虽然例子2没有共同前缀，但也可以认为共同前缀是空串，且出现在首尾两端的字符串中。由于是按字母顺序排的，而不是按长度，所以首尾字母的长度关系不知道，为了防止溢出错误，只遍历而这种较短的那个的长度，找出共同前缀返回即可，参见代码如下：</p>
+<p>C++ 解法三：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs plain">class Solution &#123;<br>public:<br>    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) &#123;<br>        if (strs.empty()) return &quot;&quot;;<br>        sort(strs.begin(), strs.end());<br>        int i &#x3D; 0, len &#x3D; min(strs[0].size(), strs.back().size());<br>        while (i &lt; len &amp;&amp; strs[0][i] &#x3D;&#x3D; strs.back()[i]) ++i;<br>        return strs[0].substr(0, i);<br>    &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>Java 解法三：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">class Solution &#123;<br>    public String longestCommonPrefix(String[] strs) &#123;<br>        if (strs &#x3D;&#x3D; null || strs.length &#x3D;&#x3D; 0) return &quot;&quot;;<br>        Arrays.sort(strs);<br>        int i &#x3D; 0, len &#x3D; Math.min(strs[0].length(), strs[strs.length - 1].length());<br>        while (i &lt; len &amp;&amp; strs[0].charAt(i) &#x3D;&#x3D; strs[strs.length - 1].charAt(i)) i++;<br>        return strs[0].substring(0, i);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>本文参考自：<br><a target="_blank" rel="noopener" href="https://github.com/grandyang/leetcode/">https://github.com/grandyang/leetcode/</a>  &amp;<br><a target="_blank" rel="noopener" href="https://github.com/azl397985856/leetcode">https://github.com/azl397985856/leetcode</a></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Lonus Lan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hexo.lonuslan.com/articles/2020/01/30/1580357070108.html">https://hexo.lonuslan.com/articles/2020/01/30/1580357070108.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hexo.lonuslan.com" target="_blank">Hi I'm LonusLan</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/daily-leetcode/">daily-leetcode</a><a class="post-meta__tags" href="/tags/leetcode/">leetcode</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/articles/2020/01/30/1580357303126.html"><img class="prev-cover" data-src="https://img.hacpai.com/bing/20181230.jpg?imageView2/1/w/960/h/540/interlace/1/q/100" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">daily leetcode - 3sum - !</div></div></a></div><div class="next-post pull-right"><a href="/articles/2020/01/30/1580356960946.html"><img class="next-cover" data-src="https://img.hacpai.com/bing/20190111.jpg?imageView2/1/w/960/h/540/interlace/1/q/100" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">daily leetcode - roman-to-integer - !</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a target="_blank" rel="noopener" href="//articles/2020/01/31/1580436668883.html" title="daily leetcode - 3sum-closest - !"><img class="relatedPosts_cover" data-src="https://img.hacpai.com/bing/20180421.jpg?imageView2/1/w/960/h/540/interlace/1/q/100"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-31</div><div class="relatedPosts_title">daily leetcode - 3sum-closest - !</div></div></a></div><div class="relatedPosts_item"><a target="_blank" rel="noopener" href="//articles/2020/01/30/1580357303126.html" title="daily leetcode - 3sum - !"><img class="relatedPosts_cover" data-src="https://img.hacpai.com/bing/20181230.jpg?imageView2/1/w/960/h/540/interlace/1/q/100"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-30</div><div class="relatedPosts_title">daily leetcode - 3sum - !</div></div></a></div><div class="relatedPosts_item"><a target="_blank" rel="noopener" href="//articles/2020/01/28/1580206741433.html" title="daily leetcode - add-two-numbers - !"><img class="relatedPosts_cover" data-src="https://img.hacpai.com/bing/20190209.jpg?imageView2/1/w/960/h/540/interlace/1/q/100"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-28</div><div class="relatedPosts_title">daily leetcode - add-two-numbers - !</div></div></a></div></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var requestSetting = function (from,set) {
+  var from = from
+  var setting = set.split(',').filter(function(item){
+  return from.indexOf(item) > -1
+  });
+  setting = setting.length == 0 ? from :setting;
+  return setting
+}
+
+var guestInfo = requestSetting(['nick','mail','link'],'nick,mail,link')
+var requiredFields = requestSetting(['nick','mail'],'nick,mail,link')
+
+window.valine = new Valine({
+  el:'#vcomment',
+  appId: 'ALeU1rmUwP000XLDJkH2jSMD-gzGzoHsz',
+  appKey: 'NsjP5NKsjVE1r7IWpb9gORbq',
+  placeholder: '留下您的足迹吧 (●◡●)',
+  avatar: 'wavatar',
+  meta: guestInfo,
+  pageSize: '10',
+  lang: 'zh-CN',
+  recordIP: true,
+  serverURLs: '',
+  emojiCDN: '',
+  emojiMaps: "",
+  enableQQ: true,
+  requiredFields: requiredFields
+});</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Lonus Lan</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>💕Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>✨Butterfly</span></a></div><div class="icp"><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/"><img class="icp-icon" src="/img/icp.png"/><span>蜀ICP备20002061号</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fas fa-comments"></i></a><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script></body></html>
