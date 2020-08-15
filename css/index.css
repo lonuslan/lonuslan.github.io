@@ -2428,9 +2428,14 @@ blockquote footer cite:before {
 #page-header #site_title {
   margin: 0;
   font-size: 1.4rem;
+  color: #639;
 }
 #page-header #site_subtitle {
   font-size: 0.8rem;
+  color: #dc143c;
+}
+#page-header .typed-cursor {
+  color: #adff2f;
 }
 #page-header #site_social_icons {
   display: none;
