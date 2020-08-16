@@ -2406,7 +2406,7 @@ blockquote footer cite:before {
 }
 #footer {
   position: relative;
-  background: #49b1f5;
+  background: #232323;
   background-attachment: local;
   background-position: bottom;
   -webkit-background-size: cover;
@@ -4261,6 +4261,112 @@ img {
     max-width: 1300px;
   }
 }
+.fa-calendar-alt {
+  color: #00008b;
+}
+.fa-boxes {
+  color: #dc143c;
+}
+.fa-tag {
+  color: #d2691e;
+}
+.fa-file-word {
+  color: #00ced1;
+}
+.fa-clock {
+  color: #008000;
+}
+.fa-eye {
+  color: #9370db;
+}
+.fa-comments {
+  color: #f00;
+}
+.fa-history {
+  color: #ff8c00;
+}
+.fa-folder-open {
+  color: #9370db;
+}
+.fa-tags {
+  color: #d2691e;
+}
+.fa-archive {
+  color: #008000;
+}
+.fa-chart-line {
+  color: #dc143c;
+}
+.fa-home {
+  color: #dc143c;
+}
+.fa-link {
+  color: #00ced1;
+}
+.fa-heart {
+  color: #f00;
+}
+.fa-list {
+  color: #adff2f;
+}
+.fa-music {
+  color: #8a2be2;
+}
+.fa-video {
+  color: #5f9ea0;
+}
+.fa-file-image {
+  color: #ffe4c4;
+}
+.fa-cloud {
+  color: #6495ed;
+}
+#veditor {
+  background-image: url("https://img.lonuslan.com/lonuslan/20200730/cHRzYPn0cDXc.gif");
+  -webkit-background-size: contain !important;
+  -moz-background-size: contain !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: right !important;
+  background-color: rgba(255,255,255,0) !important;
+  resize: vertical !important;
+}
+#veditor:focus {
+  background-position-y: 200px !important;
+  -webkit-transition: all 0.2s ease-in-out 0s !important;
+  -moz-transition: all 0.2s ease-in-out 0s !important;
+  -o-transition: all 0.2s ease-in-out 0s !important;
+  -ms-transition: all 0.2s ease-in-out 0s !important;
+  transition: all 0.2s ease-in-out 0s !important;
+}
+.vsys {
+  font-size: 0.95em !important;
+}
+.vsys .fa-chrome {
+  color: #0dd5ff;
+  margin-right: 5px;
+}
+.vsys .fa-windows {
+  color: #ca1b1e;
+  margin-right: 5px;
+}
+#vcomment .vcards .vcard {
+  padding: 15px 20px 0 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  -webkit-box-shadow: 0 0 4px 1px rgba(0,0,0,0.12);
+  box-shadow: 0 0 4px 1px rgba(0,0,0,0.12);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#vcomment .vcards .vcard .vh .vcard {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 .relatedPosts {
   margin-top: 1rem;
 }
@@ -4711,9 +4817,6 @@ img {
 }
 #vcomment button:hover {
   background-color: #ff7242;
-}
-#vcomment textarea {
-  background: url("https://img.lonuslan.com/lonuslan/20200730/cHRzYPn0cDXc.gif") 100% 100% no-repeat;
 }
 #vcomment .vimg {
   -webkit-transition: all 0.3s;
