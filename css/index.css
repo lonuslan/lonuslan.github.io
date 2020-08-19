@@ -73,17 +73,11 @@ body {
   z-index: -999;
   width: 100%;
   height: 100%;
-  background: -webkit-linear-gradient(30deg, rgba(255,165,150,0.5) 5%, rgba(0,228,255,0.35));
-  background: -moz-linear-gradient(30deg, rgba(255,165,150,0.5) 5%, rgba(0,228,255,0.35));
-  background: -o-linear-gradient(30deg, rgba(255,165,150,0.5) 5%, rgba(0,228,255,0.35));
-  background: -ms-linear-gradient(30deg, rgba(255,165,150,0.5) 5%, rgba(0,228,255,0.35));
-  background: linear-gradient(60deg, rgba(255,165,150,0.5) 5%, rgba(0,228,255,0.35));
-  background-attachment: local;
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: -webkit-linear-gradient(30deg, rgba(255,165,150,0.5) 5%, rgba(0,228,255,0.35)) 0 0/cover, url("https://img.lonuslan.com/img/gezi.svg") 0 0;
+  background: -moz-linear-gradient(30deg, rgba(255,165,150,0.5) 5%, rgba(0,228,255,0.35)) 0 0/cover, url("https://img.lonuslan.com/img/gezi.svg") 0 0;
+  background: -o-linear-gradient(30deg, rgba(255,165,150,0.5) 5%, rgba(0,228,255,0.35)) 0 0/cover, url("https://img.lonuslan.com/img/gezi.svg") 0 0;
+  background: -ms-linear-gradient(30deg, rgba(255,165,150,0.5) 5%, rgba(0,228,255,0.35)) 0 0/cover, url("https://img.lonuslan.com/img/gezi.svg") 0 0;
+  background: linear-gradient(60deg, rgba(255,165,150,0.5) 5%, rgba(0,228,255,0.35)) 0 0/cover, url("https://img.lonuslan.com/img/gezi.svg") 0 0;
 }
 h1,
 h2,
@@ -2410,19 +2404,27 @@ blockquote footer cite:before {
 }
 #footer {
   position: relative;
-  background: #232323;
+  background: -webkit-linear-gradient(135deg, #ee7752, #ce3e75, #23a6d5, #23d5ab);
+  background: -moz-linear-gradient(135deg, #ee7752, #ce3e75, #23a6d5, #23d5ab);
+  background: -o-linear-gradient(135deg, #ee7752, #ce3e75, #23a6d5, #23d5ab);
+  background: -ms-linear-gradient(135deg, #ee7752, #ce3e75, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #ee7752, #ce3e75, #23a6d5, #23d5ab);
   background-attachment: local;
   background-position: bottom;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-}
-#footer:before {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  content: '';
+  -webkit-animation: Gradient 10s ease infinite;
+  -moz-animation: Gradient 10s ease infinite;
+  -o-animation: Gradient 10s ease infinite;
+  -ms-animation: Gradient 10s ease infinite;
+  animation: Gradient 10s ease infinite;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 #footer-wrap {
   position: relative;
